@@ -11,7 +11,7 @@ public class ControladorInicio {
     @GetMapping("/")
     public String inicio(){
         log.info("Ejecutando Spring");
-        return "Hola Mundo con Spring Boot";
+        return "Hola Mundo con Spring Boot git";
     }
     
 }
