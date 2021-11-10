@@ -1,10 +1,6 @@
 package gob.isem.eic.cei.web;
 
-import gob.isem.eic.cei.dao.PersonaDao;
-import gob.isem.eic.cei.domain.Persona;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import gob.isem.eic.cei.servicio.PersonaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,13 +16,13 @@ public class ControladorInicio {
     private String saludo;
 
     @Autowired
-    private PersonaDao personaDao;
+    private PersonaService personaService;
     
     @GetMapping("/")
     public String inicio(Model model) {
         String mensaje = "Mensaje con Spring y thymeleaf";
 
-        var personas = personaDao.findAll();
+        var personas = personaService.listarPersonas();
         //List<Persona> personas = new ArrayList<>();
 
         //model.addAttribute("persona", persona2);
