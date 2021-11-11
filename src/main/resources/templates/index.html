@@ -6,6 +6,7 @@
     </head>
     <body>
         <h1>Inicio Spring MVC desde PostgreSQL 2</h1>
+        <a th:href="@{/agregar}">Crear persona</a>
         <p th:text="${mensaje}"></p>
         <p th:text="${saludo}"></p>
         <div th:if="${personas != null and !personas.empty}">
@@ -14,13 +15,17 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Correo</th>
-                    <th>Telefono</th>                
+                    <th>Telefono</th> 
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
                 <tr th:each="persona : ${personas}">
                     <td th:text="${persona.nombre}">Nombre</td>            
                     <td th:text="${persona.apellido}">Apellido</td>            
                     <td th:text="${persona.email}">Correo</td>            
-                    <td th:text="${persona.telefono}"></td>            
+                    <td th:text="${persona.telefono}"></td>    
+                    <td> <a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar" /></td>
+                    <td> <a th:href="@{/eliminar(idPersona=${persona.idPersona})}" th:text="Eliminar" /></td>
                 </tr>
             </table>
         </div>
