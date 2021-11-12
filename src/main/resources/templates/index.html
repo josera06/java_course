@@ -5,10 +5,8 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>Inicio Spring MVC desde PostgreSQL 2</h1>
-        <a th:href="@{/agregar}">Crear persona</a>
-        <p th:text="${mensaje}"></p>
-        <p th:text="${saludo}"></p>
+        <header th:replace="layout/plantillas :: header"></header>
+
         <div th:if="${personas != null and !personas.empty}">
             <table border="1">
                 <tr>
@@ -32,5 +30,6 @@
         <div th:if="${personas == null or personas.empty}">
             ¡La lista de personas está vacia!
         </div>
+        <footer th:replace="layout/plantillas :: footer"></footer>
     </body>
 </html>

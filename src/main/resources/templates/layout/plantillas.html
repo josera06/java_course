@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Plantilla</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:fragment="header">
+            <h1>Control de clientes</h1>
+            <h1>Spring MVC - PostgreSQL</h1>
+            <a th:href="@{/agregar}">Crear persona</a>
+            <p th:text="${mensaje}"></p>
+            <p th:text="${saludo}"></p>
+        </header>
+        <footer th:fragment="footer">
+            <p>Derechos reservador <a href="http://www.globalmentoring.com.mx" target="_blank">GlobalMentoring</a></p>
+        </footer>
+    </body>
+</html>
