@@ -2,6 +2,7 @@ package gob.isem.eic.cei.web;
 
 import gob.isem.eic.cei.domain.Persona;
 import gob.isem.eic.cei.servicio.PersonaService;
+import java.util.List;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ControladorInicio {
     public String inicio(Model model, @AuthenticationPrincipal User user) {
         String mensaje = "Mensaje con Spring y thymeleaf";
 
-        var personas = personaService.listarPersonas();
+        List<Persona> personas = personaService.listarPersonas();
         //List<Persona> personas = new ArrayList<>();
 
         //model.addAttribute("persona", persona2);
