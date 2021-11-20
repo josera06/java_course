@@ -30,15 +30,17 @@ public class ControladorInicio {
         String mensaje = "Mensaje con Spring y thymeleaf";
 
         List<Persona> personas = personaService.listarPersonas();
-        //List<Persona> personas = new ArrayList<>();
+        log.info("Personas " + personas.toString());
 
-        //model.addAttribute("persona", persona2);
-        model.addAttribute("mensaje", mensaje);
-        model.addAttribute("saludo", saludo);
+        var saldoTotal = 0D;
+        for (var persona : personas) {
+            saldoTotal += persona.getSaldo();
+        }
+
+        model.addAttribute("saldoTotal", saldoTotal);
+        model.addAttribute("totalClientes", personas.size());
         model.addAttribute("personas", personas);
-        log.info(personas.toString());
-        log.info("Ejecutando el controlador Spring MVC desde PostgreSQL");
-        log.info("Usuario registrado: " + user);
+
         return "index";
     }
 
